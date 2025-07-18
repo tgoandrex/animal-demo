@@ -34,3 +34,13 @@ def add_animal():
     conn.commit()
     conn.close()
     return render_template('index.html', title='Animal List')
+
+@app.route('/delete', methods=['POST'])
+def delete_animal():
+    conn = get_db_connection()
+    animal_id = request.form['id']
+    
+    conn.execute('DELETE FROM animals WHERE id = ?', (animal_id))
+    conn.commit()
+    conn.close()
+    return render_template('index.html', title='Animal List')

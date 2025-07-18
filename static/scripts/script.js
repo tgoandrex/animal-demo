@@ -43,6 +43,10 @@ function addAnimalItem(contents) {
         <span>Name: ${contents.name}</span>
         <span>Species: ${contents.species}</span>
         <span>Age: ${contents.age} year(s) old</span>
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" value="${contents.id}" />
+            <input type="submit" class="button" value="Delete" />
+        </form>
     `;
 
     return animal;
